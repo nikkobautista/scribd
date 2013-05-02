@@ -1,5 +1,6 @@
 # Scribd Client
-This shows a number of working examples for the PHP Client Library.
+This is a Scribd client that's compatible with Composer. It can be found on Packagist: https://packagist.org/packages/nikkobautista/scribd
+This was based on the original version created by Robert Pottorff.
 
 # Installation
 Just add the package to the ````require```` atttribute of your ````composer.json```` file like so:
