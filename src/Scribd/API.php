@@ -294,7 +294,7 @@ class API
         $arr = array();
         if ($sxml) {
             foreach ($sxml as $k => $v) {
-                if($arr[$k]) {
+                if(isset($arr[$k]) && $arr[$k]) {
                     $arr[$k." ".(count($arr) + 1)] = self::convert_simplexml_to_array($v);
                 } else {
                     $arr[$k] = self::convert_simplexml_to_array($v);
