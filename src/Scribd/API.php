@@ -1,6 +1,8 @@
 <?php
 namespace Scribd;
 
+use \Exception;
+
 class API
 {
     public $api_key;
