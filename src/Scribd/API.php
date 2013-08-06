@@ -254,7 +254,7 @@ class API
         if($result['stat'] == "ok") {
             //This is shifty. Works currently though.
             $result = $this->convert_simplexml_to_array($result);
-            if(urlencode((string)$result) == "%0A%0A" && $this->error == 0) {
+            if(gettype($result) == 'string' && urlencode($result) == "%0A%0A" && $this->error == 0) {
                 $result = "1";
                 return $result;
             } else {
