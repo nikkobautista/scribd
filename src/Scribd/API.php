@@ -68,7 +68,7 @@ class API
     * Get a list of the current users files
     * @return array containing doc_id, title, description, access_key, and conversion_status for all documents
     */
-    public function getList()
+    public function getList($params = array())
     {
         $method = "docs.getList";
 
