@@ -150,15 +150,31 @@ class API
     * @param int $num_results : number of results to return (10 default, 1000 max)
     * @param int $num_start : number to start from
     * @param string $scope : scope of search, "all" or "user"
+    * @param integer $category_id : Restricts search results to only documents in a certain category.
+    * @param string $language : Restricts search results to only documents in the specified language (in ISO 639-1 format).
+    * @param boolean $simple : This option specifies whether or not to allow advanced search queries. 
+    *                          When set to false, the API search behaves the same as the search on Scribd.com. 
+    *                          When set to true, the API search allows advanced queries that contain filters 
+    *                          such as title:"A Tale of Two Cities". Set to "true" by default.
+    *                          
     * @return array of results, each of which contain doc_id, secret password, access_key, title, and description
     */
-    public function search($query, $num_results = null, $num_start = null, $scope = null)
+    public function search($query, $num_results = null, $num_start = null, $scope = null, $category_id = null, $language = null, $simple = true)
     {
         $method = "docs.search";
         $params['query'] = $query;
         $params['num_results'] = $num_results;
         $params['num_start'] = $num_start;
         $params['scope'] = $scope;
+        $params['simple'] = $simple;
+        
+        if (!is_null($category_id)) {
+            $params['category_id'] = $category_id;
+        }
+
+        if (!is_null($language)) {
+            $params['language'] = $language;
+        }
 
         $result = $this->postRequest($method, $params);
 
